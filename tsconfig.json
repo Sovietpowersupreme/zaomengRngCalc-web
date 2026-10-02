@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["vite/client", "node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  // ``src/**/*.vue`` 要显式写：``include`` 里的目录只展开 tsc 认识的扩展名
+  // （``.ts``/``.tsx``/``.d.ts``…），``.vue`` 不在其中。``vue-tsc`` 认它，但得先喂进来。
+  "include": ["src", "src/**/*.vue", "tests", "vite.config.ts"]
+}

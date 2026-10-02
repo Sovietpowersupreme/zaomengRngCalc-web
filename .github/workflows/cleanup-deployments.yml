@@ -1,0 +1,118 @@
+# 把仓库里的旧 deployment 记录删掉，只保留最新的几条。
+#
+# 注意：这个文件位于**公开仓库**（其仓库根 = 本目录 web/）。写注释时不要出现主仓库的
+# 私有路径或内部信息。
+#
+# 为什么需要它：
+#   deployment 记录**没有保留期，GitHub 不会自动清理**（对比：Actions 日志/产物默认只留
+#   90 天，那是另一套东西）。反复发布站点只会让记录越堆越多。
+#   正常情况下旧记录会自动变成 inactive（auto_inactive），而「仓库不止一条部署时只能删
+#   inactive 的」——所以那些仓库的旧记录天然可删。
+#   **但 GitHub Pages 的部署不吃 auto_inactive**：本仓库两条记录的最新状态都是 success，
+#   于是全都卡在「不可删」状态，删也删不掉（DELETE 返回 422 Validation failed）。
+#
+# 做法：每次 Pages 部署跑完，保留最新的 KEEP 条，其余先补一条 inactive 状态再删。
+#   顺序不能反 —— 先 inactive 再 DELETE，否则 422。
+#
+# 权限：只需要 deployments: write。用工作流自带的 GITHUB_TOKEN，不需要任何 PAT / secret。
+name: 清理旧部署记录
+
+on:
+  # 也可以只在每次发布成功后自动跑
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types: [completed]
+  # 想手动清理（或先干跑一遍看看）就走这个入口。
+  # ⚠️ 本文件必须已经在**默认分支**上，workflow_dispatch / workflow_run 才会生效。
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "只打印将要删除的记录，不真的删"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  deployments: write
+  # 不需要 pages: write / id-token —— 这里只动 deployment 记录，不碰站点。
+
+jobs:
+  cleanup:
+    runs-on: ubuntu-latest
+    steps:
+      # 故意不用 actions/checkout：这个任务只需要调 API，不需要仓库内容。
+      - name: 清理旧 deployment
+        uses: actions/github-script@v9
+        env:
+          # 只保留最新的这么多条（1 = 只留当前那次）
+          KEEP: "1"
+          # 与我们站点部署用的环境名一致，别写错，写错就是「一条都找不到」
+          ENVIRONMENT: github-pages
+          DRY_RUN: ${{ inputs.dry_run }}
+        with:
+          script: |
+            const { owner, repo } = context.repo;
+            const environment = process.env.ENVIRONMENT;
+            const keep = Number(process.env.KEEP);
+            const dryRun = process.env.DRY_RUN === 'true';
+
+            if (context.eventName === 'workflow_run') {
+              const run = context.payload.workflow_run;
+              core.info(`触发来源：${run.name} #${run.run_number}（${run.conclusion}）`);
+            } else {
+              core.info('触发来源：手动 workflow_dispatch');
+            }
+
+            const all = await github.paginate(github.rest.repos.listDeployments, {
+              owner,
+              repo,
+              environment,
+              per_page: 100,
+            });
+            core.info(`环境 ${environment} 下共 ${all.length} 条部署记录`);
+
+            // 显式按创建时间倒序，不依赖 API 的返回顺序
+            all.sort((a, b) => new Date(b.created_at) - new Date(a.created_at));
+
+            const doomed = all.slice(keep);
+            if (doomed.length === 0) {
+              core.info('没有需要清理的记录');
+              return;
+            }
+
+            for (const d of doomed) {
+              const tag = `${d.id} (${d.sha.slice(0, 7)}, ${d.created_at})`;
+              if (dryRun) {
+                core.info(`[dry-run] 将删除 ${tag}`);
+                continue;
+              }
+              try {
+                // 旧记录不一定已经是 inactive（GitHub Pages 的部署不会自动 inactive），
+                // 而多于一条时只能删 inactive 的 → 先补一个 inactive 状态。
+                const statuses = await github.paginate(
+                  github.rest.repos.listDeploymentStatuses,
+                  { owner, repo, deployment_id: d.id, per_page: 100 },
+                );
+                const latest = statuses.sort(
+                  (a, b) => new Date(b.created_at) - new Date(a.created_at),
+                )[0];
+                if (latest?.state !== 'inactive') {
+                  await github.rest.repos.createDeploymentStatus({
+                    owner,
+                    repo,
+                    deployment_id: d.id,
+                    state: 'inactive',
+                  });
+                  core.info(`已把 ${tag} 标记为 inactive`);
+                }
+                await github.rest.repos.deleteDeployment({
+                  owner,
+                  repo,
+                  deployment_id: d.id,
+                });
+                core.info(`已删除 ${tag}`);
+              } catch (err) {
+                // 单条失败不影响其它记录，也不要因此把整个工作流判红
+                core.warning(`处理 ${tag} 失败：${err.status ?? ''} ${err.message}`);
+              }
+            }
