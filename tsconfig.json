@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM", "DOM.Iterable"],
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+    "types": ["vite/client", "node"],
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    "noImplicitOverride": true,
+    "noFallthroughCasesInSwitch": true,
+    "noUnusedLocals": true,
+    "noUnusedParameters": true,
+    "isolatedModules": true,
+    "verbatimModuleSyntax": true,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
+    "noEmit": true
+  },
+  // ``src/**/*.vue`` 要显式写：``include`` 里的目录只展开 tsc 认识的扩展名
+  // （``.ts``/``.tsx``/``.d.ts``…），``.vue`` 不在其中。``vue-tsc`` 认它，但得先喂进来。
+  // ``extension`` 是 ``web/extension/url-seed``（浏览器扩展）。它**必须**在这里：
+  // ``src/chrome.d.ts`` 是环境声明（``declare namespace chrome``），不 include 就没人看得见。
+  // ``url-seed-mv2`` 也在这个目录下，但它**只有一份 manifest.json**（代码与 MV3 档共用），
+  // 没有可编译的 .ts，include 到它是顺带的。
+  // 注意 ``extension/*/dist`` 是构建产物、``extension/*/src/*.d.ts`` 里没有要编译的，
+  // 所以只 include ``extension`` 目录本身即可（``dist`` 由 ``.gitignore`` 挡在版本库外）。
+  "include": ["src", "src/**/*.vue", "tests", "extension", "vite.config.ts"]
+}

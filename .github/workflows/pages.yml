@@ -1,0 +1,117 @@
+# 把本仓库构建成静态站点并发布到 GitHub Pages。
+#
+# 注意：这个文件位于**公开仓库**（其仓库根 = 本目录 web/）。写注释时不要出现主仓库的
+# 私有路径或内部信息。
+#
+# 为什么用 Actions 而不是「Deploy from a branch」：
+#   分支发布是把仓库里的文件原样当成品发出去 —— 本仓库的 index.html 引的是
+#   /src/main.ts（TypeScript 源码，未经构建），既没有 dist/ 里的 bundle，也没有
+#   cracker.wasm。而且分支发布还会先过一遍 Jekyll，把名字以 _ 开头的文件静默丢掉。
+#   走 Actions 则由本工作流自己 npm run build 并上传 dist/，Pages 原样伺服、不跑 Jekyll。
+#
+# 有几处和本地跑不一样，改之前先看清楚：
+#   1. 测试用 test:ci，不是 test。它跳过 3 个**整份依赖**上游项目 golden 快照的套件
+#      （wasm_engine / searcher / scenario_runs），那些快照不在本仓库里。
+#      另有第 4 个读 golden 的套件 wasm_variant：它在 CI 里**照跑**，只是靠
+#      tests/helpers/golden.ts 的 GOLDEN_AVAILABLE 把「原语层 / spec 层 / 场景层」
+#      整组跳过，留下不依赖 golden 的字节层 + ABI 层（两份 wasm 的结构与 ABI 等价）。
+#      也就是说 **CI 全绿 ≠ 全绿**：发布前必须在主仓库本地跑一遍完整的 npm run check。
+#      （以后再加读 golden 的套件，要么加进 test:ci 的 --exclude，要么按 GOLDEN_AVAILABLE 守卫。）
+#   2. 不需要 .nojekyll：Actions 方式发布不过 Jekyll；何况 upload-pages-artifact
+#      默认 include-hidden-files: false，点文件本来就会被丢掉，写了也是白写。
+#   3. 不需要任何 PAT / secret：部署用 GitHub 自带的 GITHUB_TOKEN + OIDC。
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [main]
+    # 只有会影响产物的文件变动才重新构建。
+    # 这里**不要**写 csrc/**、src_forge/** 之类的主仓库路径 —— 它们在本仓库里不存在，
+    # 一旦写进去，push 将永远匹配不到，工作流会静默地从不触发。
+    # 文档（README.md / docs/** / assets/**）也**故意**不列进来：
+    # 改措辞、换截图不该重跑一遍构建，事后只更新文件不重新发布是有意为之。
+    #
+    # ⚠️ 实测（2026-10-02）：**force-push（非快进）更新 main 时，本工作流不会自动
+    # 触发**，哪怕这次推送确实改了 src/**（清空历史后 force-push、用 commit-tree
+    # 造提交后 force-push，两次都没反应）。首次建分支不受影响：分支从无到有，
+    # GitHub 会跳过这层过滤。表观症状就是「仓库内容更新了，站点还是旧的」。
+    # 对策：force-push 之后到 Actions 页面手动点一次 Deploy to GitHub Pages →
+    # Run workflow —— workflow_dispatch 就是为这种情况留的。
+    paths:
+      - src/**
+      - public/**
+      - tests/**
+      - tools/**
+      # 扩展（`extension/url-seed` = MV3，`extension/url-seed-mv2` = MV2）不进 dist，
+      # 但 `tsconfig.json` 把 `extension` include 进来了 ⇒ 它的类型错误会在这个工作流的
+      # `npm run typecheck` 里现形。不列进 paths 的话，「只改了扩展源码」的那次 push
+      # 会静默地一次 CI 都不跑。
+      - extension/**
+      - index.html
+      - vite.config.ts
+      - tsconfig.json
+      - package.json
+      - package-lock.json
+      - .github/workflows/pages.yml
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+# 同一时刻只允许一个 Pages 部署。这里故意 **不** 取消进行中的那次：
+# 部署被中途打断可能留下半成品站点，宁可让后一次排队等它跑完。
+concurrency:
+  group: pages
+  cancel-in-progress: false
+
+jobs:
+  build:
+    name: 构建
+    runs-on: ubuntu-latest
+    steps:
+      - name: 检出
+        uses: actions/checkout@v7
+
+      # 放在构建之前：万一仓库的 Settings → Pages 还没把 Source 切成
+      # 「GitHub Actions」，这一步会立刻带着明确报错失败，不必等两分钟构建完才发现。
+      - name: 配置 Pages
+        uses: actions/configure-pages@v6
+
+      - name: 安装 Node
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+          cache: npm
+          cache-dependency-path: package-lock.json
+
+      # 用 ci 而不是 install：严格按 lockfile 安装；lock 与 package.json 不一致时直接失败。
+      - name: 安装依赖
+        run: npm ci
+
+      - name: 类型检查（含 .vue）
+        run: npm run typecheck
+
+      - name: 单元测试
+        run: npm run test:ci
+
+      - name: 构建产物
+        run: npm run build
+
+      - name: 上传产物
+        uses: actions/upload-pages-artifact@v5
+        with:
+          path: dist
+
+  deploy:
+    name: 发布
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - name: 部署到 Pages
+        id: deployment
+        uses: actions/deploy-pages@v5

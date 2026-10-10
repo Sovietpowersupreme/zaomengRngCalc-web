@@ -1,0 +1,15 @@
+# 行尾与二进制策略。
+#
+# 主仓库根目录有一份同样思路的 .gitattributes，但 subtree 推送只会带 web/ 目录里的
+# 内容过去，所以独立仓库必须自己再放一份，否则行尾会重新受 core.autocrlf 摆布 ——
+# 而 CI 跑在 Linux、本地在 Windows，两边很容易对不上。
+#
+# 规则与主仓库保持一致，因此不会引起任何文件被重新归一化。
+
+# 默认：自动识别文本 → 文本一律 LF 入库、LF 检出
+* text=auto eol=lf
+
+# 显式二进制：不转换行尾，也不尝试文本 diff
+*.wasm binary
+*.png  binary
+*.ico  binary

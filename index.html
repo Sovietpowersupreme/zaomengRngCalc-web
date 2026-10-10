@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="zh-CN" %%legacy-index-marker%%>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="造梦西游3 随机数计算器：在浏览器本地算出强化、打造、洗练、宠物捕捉等场景的种子与最近解。"
+    />
+    <link rel="icon" type="image/png" href="./favicon.png" />
+    <title>造梦西游3 随机数计算器</title>
+    <!--#legacy-shim:start#-->
+    <style>
+      html, body {
+        margin: 0;
+        padding: 0;
+        background-color: #101c38;
+        color: #ece0c3;
+        overflow: hidden;
+      }
+      /* 见下方垫片：老引擎连现代档的脚本都解析不了，只能自己把话说清楚。 */
+      .engine-too-old-tip {
+        max-width: 32em;
+        margin: 12vh auto 0;
+        padding: 1.2em 1.4em;
+        border: 1px solid #8a7a51;
+        border-radius: 6px;
+        background: #16233f;
+        color: #ece0c3;
+        font: 14px/1.8 system-ui, sans-serif;
+        text-align: center;
+      }
+      .engine-too-old-tip a {
+        color: #f0c869;
+      }
+    </style>
+    <!--
+      兼容旧浏览器的入口垫片。
+
+      现代档产物是 **es2022** 语法（Oxc 只按 `build.target` 降级，见 vite.config.ts），
+      Chromium 70 这种老引擎连**解析**都过不了，浏览器又不会告诉你为什么 —— 结果就是白屏。
+      判据只能是「这个引擎能不能解析现代档的语法」，而这件事**只有解析器自己知道**：
+      `new Function` 走的是同一个解析器，语法不支持必抛 `SyntaxError`。探测串里挑的是
+      es2022 那几样现代档真的会用到的（逻辑赋值、可选链、类字段、静态块、BigInt 字面量）。
+
+      ⚠️ 三条自我保护，缺一个都会翻车：
+
+      * **只有 `SyntaxError` 才算「引擎太老」。** 别的异常（例如站点以后配了 CSP，就会抛
+        `EvalError: … unsafe-eval …`）一律当现代档处理 —— 探测不出结果时，「把现代浏览器
+        赶去旧版页面」的代价远大于「不跳」。
+      * **跳转前必须确认那边真的有旧版产物 —— 而这件事只能拿「内容」证明，状态码不算证据。**
+        原来这里问的是 `HEAD ./legacy/`，被 `npm run dev` 一击即破：vite 的 SPA 兜底对
+        **任何**路径都回 `200` + 同一份现代 `index.html`（连 `/nope.txt` 都是，实测两条 URL
+        的响应逐字节相同）⇒ 探测必然「成功」，老引擎被 `location.replace` 送到一个连解析都
+        过不了的页面上，还是白屏。现在改成把 `./legacy/index.html` 取回来，**只认构建时盖在
+        `<html>` 上的那个记号**（哪里盖的、拼法是什么，见 `vite.config.ts` 的
+        `LEGACY_INDEX_MARK`；`<html>` 上那串 `%%` 占位就是它的家）。
+      * **我们自己那两个 legacy 产物直接放行**（见下面的路径判断）。它们本来就是给老引擎用的，
+        老引擎在那儿是**对的**，别再劝它跳转 —— 尤其 `rngcalc.legacy.html` 通常是双击
+        `file://` 打开的，那里的 `./legacy/` 必然取不到，会白白盖一句「没跳过去」的提示
+        在正常工作的旧版页面上。
+
+      跳不过去时（404 / 网络失败 / 没有记号）原地写一句人话，并**给出单文件旧版的位置**：
+      它就在同一目录下（`npm run dev` 下由 `public/` 提供）。
+
+      ⚠️ 这段必须是 **ES5 语法**（要能被最老的引擎解析，才有资格救它），所以没有箭头函数、
+      没有 `const`、没有模板串。
+
+      ⚠️ 本文件里**任何地方都不许**写出完整记号（连注释里也不行）：这个文件自己就会被当
+      返回值取回来，回声里带着记号 = 探测恒真 = 老引擎又被送错地方。已经有两个用例钉住这条。
+    -->
+    <script>
+      (function () {
+        var tooOld = false;
+        try {
+          // eslint-disable-next-line no-new, no-new-func
+          new Function("var o = { a: 1 }; o.a ??= 2; o?.a; class C { p = 1; static {} } 1n;");
+        } catch (err) {
+          tooOld = err instanceof SyntaxError;
+        }
+        if (!tooOld) return;
+        // 「我是不是已经站在某个 legacy 产物上？」两条判据：
+        // * **自己这一级**（目录或文件名）里带 legacy ：`/legacy/`、`rngcalc.legacy.html`；
+        // * **任何一级目录的名字恰好是 `legacy`**：`/legacy/index.html` 这类「目录里的文件」。
+        // 只看带 legacy 的**那一级**、目录名要**完全相等**，都是为了「恰好放在一个叫
+        // legacy-xxx 的目录里的现代档（`/legacy-notes/rngcalc.html`）」不被误判。
+        // 命中的话什么也不做：老引擎在旧版页面上是**对的**；再跳一次就会在
+        // `dist/legacy/index.html` 上无限转圈（那里的 `./legacy/` 不存在）。
+        var parts = location.pathname.split("/");
+        var last = "";
+        for (var i = parts.length - 1; i >= 0; i--) {
+          if (parts[i] !== "") {
+            last = parts[i];
+            break;
+          }
+        }
+        if (last.indexOf("legacy") >= 0) return;
+        for (var j = 0; j < parts.length; j++) {
+          if (parts[j] === "legacy") return;
+        }
+        function explain() {
+          var tip = document.createElement("div");
+          tip.className = "engine-too-old-tip";
+          tip.textContent = "这个浏览器版本太旧，跑不动新版计算器。请升级浏览器，或打开同一目录下的「旧浏览器版」单文件页面：";
+          var link = document.createElement("a");
+          link.href = "./rngcalc.legacy.html";
+          link.textContent = "rngcalc.legacy.html";
+          tip.appendChild(link);
+          tip.appendChild(
+            document.createTextNode(
+              "。（若仍打不开，请确定浏览器chromium内核版本>=70）",
+            ),
+          );
+          (document.body || document.documentElement).appendChild(tip);
+        }
+        // ⚠️ 记号是**拼**出来的，不许写成一整串：答案就在这个文件里，写成一整串的话，
+        //    服务器把本页原样回给你（dev 的 SPA 兜底）时回声里就带着记号 ⇒ 探测恒真。
+        var MARK = "data-legacy" + "-build";
+        var xhr = new XMLHttpRequest();
+        xhr.open("GET", "./legacy/index.html", true);
+        xhr.onload = function () {
+          var body = xhr.status >= 200 && xhr.status < 400 ? String(xhr.responseText || "") : "";
+          if (body.indexOf(MARK) >= 0) location.replace("./legacy/");
+          else explain();
+        };
+        xhr.onerror = explain;
+        try {
+          xhr.send();
+        } catch (err) {
+          explain();
+        }
+      })();
+    </script>
+    <!--#legacy-shim:end#-->
+  </head>
+  <body>
+    <div id="app"></div>
+    <noscript>这个计算器需要 JavaScript。</noscript>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>

@@ -1,0 +1,2760 @@
+{
+  "schema": 1,
+  "roundtrip": [
+    {
+      "in": {
+        "kind": "interval",
+        "step": 3,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 255
+          },
+          {
+            "kind": "interval",
+            "lo": 1000,
+            "hi": 2000
+          }
+        ],
+        "scanner": "crack2"
+      },
+      "out": {
+        "kind": "interval",
+        "step": 3,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 255
+          },
+          {
+            "kind": "interval",
+            "lo": 1000,
+            "hi": 2000
+          }
+        ],
+        "scanner": "crack2"
+      }
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 7,
+            "hi": 7
+          }
+        ]
+      },
+      "out": {
+        "kind": "interval",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 7,
+            "hi": 7
+          }
+        ],
+        "scanner": "crack"
+      }
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "step": 0,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 4294967295
+          }
+        ]
+      },
+      "out": {
+        "kind": "interval",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 4294967295
+          }
+        ],
+        "scanner": "crack"
+      }
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "step": -5,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 1,
+            "hi": 2
+          }
+        ]
+      },
+      "out": {
+        "kind": "interval",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 1,
+            "hi": 2
+          }
+        ],
+        "scanner": "crack"
+      }
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "step": 2,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 5
+          },
+          {
+            "kind": "interval",
+            "lo": 10,
+            "hi": 15
+          },
+          {
+            "kind": "interval",
+            "lo": 20,
+            "hi": 25
+          },
+          {
+            "kind": "interval",
+            "lo": 30,
+            "hi": 35
+          },
+          {
+            "kind": "interval",
+            "lo": 40,
+            "hi": 45
+          },
+          {
+            "kind": "interval",
+            "lo": 50,
+            "hi": 55
+          },
+          {
+            "kind": "interval",
+            "lo": 60,
+            "hi": 65
+          },
+          {
+            "kind": "interval",
+            "lo": 70,
+            "hi": 75
+          },
+          {
+            "kind": "interval",
+            "lo": 80,
+            "hi": 85
+          },
+          {
+            "kind": "interval",
+            "lo": 90,
+            "hi": 95
+          },
+          {
+            "kind": "interval",
+            "lo": 100,
+            "hi": 105
+          },
+          {
+            "kind": "interval",
+            "lo": 110,
+            "hi": 115
+          },
+          {
+            "kind": "interval",
+            "lo": 120,
+            "hi": 125
+          },
+          {
+            "kind": "interval",
+            "lo": 130,
+            "hi": 135
+          },
+          {
+            "kind": "interval",
+            "lo": 140,
+            "hi": 145
+          },
+          {
+            "kind": "interval",
+            "lo": 150,
+            "hi": 155
+          },
+          {
+            "kind": "interval",
+            "lo": 160,
+            "hi": 165
+          },
+          {
+            "kind": "interval",
+            "lo": 170,
+            "hi": 175
+          },
+          {
+            "kind": "interval",
+            "lo": 180,
+            "hi": 185
+          },
+          {
+            "kind": "interval",
+            "lo": 190,
+            "hi": 195
+          },
+          {
+            "kind": "interval",
+            "lo": 200,
+            "hi": 205
+          },
+          {
+            "kind": "interval",
+            "lo": 210,
+            "hi": 215
+          },
+          {
+            "kind": "interval",
+            "lo": 220,
+            "hi": 225
+          },
+          {
+            "kind": "interval",
+            "lo": 230,
+            "hi": 235
+          },
+          {
+            "kind": "interval",
+            "lo": 240,
+            "hi": 245
+          },
+          {
+            "kind": "interval",
+            "lo": 250,
+            "hi": 255
+          },
+          {
+            "kind": "interval",
+            "lo": 260,
+            "hi": 265
+          },
+          {
+            "kind": "interval",
+            "lo": 270,
+            "hi": 275
+          },
+          {
+            "kind": "interval",
+            "lo": 280,
+            "hi": 285
+          },
+          {
+            "kind": "interval",
+            "lo": 290,
+            "hi": 295
+          },
+          {
+            "kind": "interval",
+            "lo": 300,
+            "hi": 305
+          },
+          {
+            "kind": "interval",
+            "lo": 310,
+            "hi": 315
+          }
+        ],
+        "scanner": "crack"
+      },
+      "out": {
+        "kind": "interval",
+        "step": 2,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 5
+          },
+          {
+            "kind": "interval",
+            "lo": 10,
+            "hi": 15
+          },
+          {
+            "kind": "interval",
+            "lo": 20,
+            "hi": 25
+          },
+          {
+            "kind": "interval",
+            "lo": 30,
+            "hi": 35
+          },
+          {
+            "kind": "interval",
+            "lo": 40,
+            "hi": 45
+          },
+          {
+            "kind": "interval",
+            "lo": 50,
+            "hi": 55
+          },
+          {
+            "kind": "interval",
+            "lo": 60,
+            "hi": 65
+          },
+          {
+            "kind": "interval",
+            "lo": 70,
+            "hi": 75
+          },
+          {
+            "kind": "interval",
+            "lo": 80,
+            "hi": 85
+          },
+          {
+            "kind": "interval",
+            "lo": 90,
+            "hi": 95
+          },
+          {
+            "kind": "interval",
+            "lo": 100,
+            "hi": 105
+          },
+          {
+            "kind": "interval",
+            "lo": 110,
+            "hi": 115
+          },
+          {
+            "kind": "interval",
+            "lo": 120,
+            "hi": 125
+          },
+          {
+            "kind": "interval",
+            "lo": 130,
+            "hi": 135
+          },
+          {
+            "kind": "interval",
+            "lo": 140,
+            "hi": 145
+          },
+          {
+            "kind": "interval",
+            "lo": 150,
+            "hi": 155
+          },
+          {
+            "kind": "interval",
+            "lo": 160,
+            "hi": 165
+          },
+          {
+            "kind": "interval",
+            "lo": 170,
+            "hi": 175
+          },
+          {
+            "kind": "interval",
+            "lo": 180,
+            "hi": 185
+          },
+          {
+            "kind": "interval",
+            "lo": 190,
+            "hi": 195
+          },
+          {
+            "kind": "interval",
+            "lo": 200,
+            "hi": 205
+          },
+          {
+            "kind": "interval",
+            "lo": 210,
+            "hi": 215
+          },
+          {
+            "kind": "interval",
+            "lo": 220,
+            "hi": 225
+          },
+          {
+            "kind": "interval",
+            "lo": 230,
+            "hi": 235
+          },
+          {
+            "kind": "interval",
+            "lo": 240,
+            "hi": 245
+          },
+          {
+            "kind": "interval",
+            "lo": 250,
+            "hi": 255
+          },
+          {
+            "kind": "interval",
+            "lo": 260,
+            "hi": 265
+          },
+          {
+            "kind": "interval",
+            "lo": 270,
+            "hi": 275
+          },
+          {
+            "kind": "interval",
+            "lo": 280,
+            "hi": 285
+          },
+          {
+            "kind": "interval",
+            "lo": 290,
+            "hi": 295
+          },
+          {
+            "kind": "interval",
+            "lo": 300,
+            "hi": 305
+          },
+          {
+            "kind": "interval",
+            "lo": 310,
+            "hi": 315
+          }
+        ],
+        "scanner": "crack"
+      }
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "step": 2,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 1610612736,
+            "value": 536870912
+          },
+          {
+            "kind": "mask",
+            "mask": 1610612736,
+            "value": 0
+          },
+          {
+            "kind": "mask",
+            "mask": 1610612736,
+            "value": 1073741824
+          }
+        ],
+        "imask": 1610612736
+      },
+      "out": {
+        "kind": "mask",
+        "step": 2,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 1610612736,
+            "value": 536870912
+          },
+          {
+            "kind": "mask",
+            "mask": 1610612736,
+            "value": 0
+          },
+          {
+            "kind": "mask",
+            "mask": 1610612736,
+            "value": 1073741824
+          }
+        ],
+        "imask": 1610612736
+      }
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 12345
+          }
+        ],
+        "imask": 4294967295
+      },
+      "out": {
+        "kind": "mask",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 12345
+          }
+        ],
+        "imask": 4294967295
+      }
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 0
+          }
+        ]
+      },
+      "out": {
+        "kind": "mask",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 0
+          }
+        ],
+        "imask": 4294967295
+      }
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 65535,
+            "value": 305419896
+          }
+        ],
+        "imask": 65535
+      },
+      "out": {
+        "kind": "mask",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 65535,
+            "value": 305419896
+          }
+        ],
+        "imask": 65535
+      }
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "step": 5,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 200
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 300
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 400
+          }
+        ],
+        "roll_vals": [
+          100,
+          200,
+          300,
+          400
+        ],
+        "gem_vals": [
+          50,
+          60
+        ],
+        "gem_index": [
+          0,
+          2
+        ]
+      },
+      "out": {
+        "kind": "roll",
+        "step": 5,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 200
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 300
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 400
+          }
+        ],
+        "roll_vals": [
+          100,
+          200,
+          300,
+          400
+        ],
+        "gem_vals": [
+          50,
+          60
+        ],
+        "gem_index": [
+          0,
+          2
+        ]
+      }
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 20
+          }
+        ],
+        "roll_vals": [
+          1,
+          2
+        ],
+        "gem_vals": [],
+        "gem_index": []
+      },
+      "out": {
+        "kind": "roll",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 20
+          }
+        ],
+        "roll_vals": [
+          1,
+          2
+        ],
+        "gem_vals": [],
+        "gem_index": []
+      }
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 20
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 30
+          }
+        ],
+        "roll_vals": [
+          7
+        ],
+        "gem_vals": [],
+        "gem_index": []
+      },
+      "out": {
+        "kind": "roll",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 20
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 30
+          }
+        ],
+        "roll_vals": [
+          7
+        ],
+        "gem_vals": [],
+        "gem_index": []
+      }
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          }
+        ]
+      },
+      "out": {
+        "kind": "roll",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          }
+        ],
+        "roll_vals": [],
+        "gem_vals": [],
+        "gem_index": []
+      }
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "step": 7,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1000
+          },
+          {
+            "kind": "interval",
+            "lo": 500,
+            "hi": 2000
+          }
+        ],
+        "target_wx": 5,
+        "bagua_growth": [
+          5,
+          12
+        ]
+      },
+      "out": {
+        "kind": "wuxing",
+        "step": 7,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1000
+          },
+          {
+            "kind": "interval",
+            "lo": 500,
+            "hi": 2000
+          }
+        ],
+        "target_wx": 5,
+        "bagua_growth": [
+          5,
+          12
+        ]
+      }
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          }
+        ],
+        "target_wx": 0
+      },
+      "out": {
+        "kind": "wuxing",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          }
+        ],
+        "target_wx": 0,
+        "bagua_growth": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          }
+        ]
+      },
+      "out": {
+        "kind": "wuxing",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          }
+        ],
+        "target_wx": 0,
+        "bagua_growth": [
+          0,
+          0
+        ]
+      }
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          }
+        ],
+        "target_wx": 34,
+        "bagua_growth": [
+          3,
+          0
+        ]
+      },
+      "out": {
+        "kind": "wuxing",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          }
+        ],
+        "target_wx": 34,
+        "bagua_growth": [
+          3,
+          0
+        ]
+      }
+    },
+    {
+      "in": {
+        "kind": "pool",
+        "step": 4,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 20
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 30
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 40
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 50
+          }
+        ],
+        "total": 100,
+        "roll_vals": [
+          10,
+          20
+        ]
+      },
+      "out": {
+        "kind": "pool",
+        "step": 4,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 20
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 30
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 40
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 50
+          }
+        ],
+        "total": 100,
+        "roll_vals": [
+          10,
+          20
+        ]
+      }
+    },
+    {
+      "in": {
+        "kind": "pool",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 2
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 3
+          }
+        ],
+        "total": 7
+      },
+      "out": {
+        "kind": "pool",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 2
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 3
+          }
+        ],
+        "total": 7,
+        "roll_vals": []
+      }
+    },
+    {
+      "in": {
+        "kind": "pool",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 2
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 3
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 4
+          }
+        ],
+        "total": 4294967300,
+        "roll_vals": [
+          1
+        ]
+      },
+      "out": {
+        "kind": "pool",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 2
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 3
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 4
+          }
+        ],
+        "total": 4,
+        "roll_vals": [
+          1
+        ]
+      }
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": [],
+        "target_wx": 0,
+        "growth": [
+          -0.3,
+          0.3
+        ],
+        "grows": true
+      },
+      "out": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": [],
+        "target_wx": 32,
+        "growth": [
+          -0.3,
+          0.3
+        ],
+        "grows": true
+      }
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "step": 5,
+        "constraints": [],
+        "target_wx": 5,
+        "growth": [
+          -0.2,
+          0.3
+        ],
+        "grows": false
+      },
+      "out": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": [],
+        "target_wx": 37,
+        "growth": [
+          -0.2,
+          0.3
+        ],
+        "grows": false
+      }
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": [],
+        "target_wx": 32
+      },
+      "out": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": [],
+        "target_wx": 32,
+        "growth": [
+          -0.3,
+          0.3
+        ],
+        "grows": true
+      }
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": []
+      },
+      "out": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": [],
+        "target_wx": 32,
+        "growth": [
+          -0.3,
+          0.3
+        ],
+        "grows": true
+      }
+    }
+  ],
+  "bounds": [
+    {
+      "in": {
+        "kind": "interval",
+        "step": 3,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 255
+          },
+          {
+            "kind": "interval",
+            "lo": 1000,
+            "hi": 2000
+          }
+        ],
+        "scanner": "crack2"
+      },
+      "kind": "interval",
+      "num": 2,
+      "step": 3,
+      "u32_bounds": [
+        [
+          0,
+          255
+        ],
+        [
+          1000,
+          2000
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 7,
+            "hi": 7
+          }
+        ]
+      },
+      "kind": "interval",
+      "num": 1,
+      "step": 1,
+      "u32_bounds": [
+        [
+          7,
+          7
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "step": 0,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 4294967295
+          }
+        ]
+      },
+      "kind": "interval",
+      "num": 1,
+      "step": 1,
+      "u32_bounds": [
+        [
+          0,
+          4294967295
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "step": -5,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 1,
+            "hi": 2
+          }
+        ]
+      },
+      "kind": "interval",
+      "num": 1,
+      "step": 1,
+      "u32_bounds": [
+        [
+          1,
+          2
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "step": 2,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 5
+          },
+          {
+            "kind": "interval",
+            "lo": 10,
+            "hi": 15
+          },
+          {
+            "kind": "interval",
+            "lo": 20,
+            "hi": 25
+          },
+          {
+            "kind": "interval",
+            "lo": 30,
+            "hi": 35
+          },
+          {
+            "kind": "interval",
+            "lo": 40,
+            "hi": 45
+          },
+          {
+            "kind": "interval",
+            "lo": 50,
+            "hi": 55
+          },
+          {
+            "kind": "interval",
+            "lo": 60,
+            "hi": 65
+          },
+          {
+            "kind": "interval",
+            "lo": 70,
+            "hi": 75
+          },
+          {
+            "kind": "interval",
+            "lo": 80,
+            "hi": 85
+          },
+          {
+            "kind": "interval",
+            "lo": 90,
+            "hi": 95
+          },
+          {
+            "kind": "interval",
+            "lo": 100,
+            "hi": 105
+          },
+          {
+            "kind": "interval",
+            "lo": 110,
+            "hi": 115
+          },
+          {
+            "kind": "interval",
+            "lo": 120,
+            "hi": 125
+          },
+          {
+            "kind": "interval",
+            "lo": 130,
+            "hi": 135
+          },
+          {
+            "kind": "interval",
+            "lo": 140,
+            "hi": 145
+          },
+          {
+            "kind": "interval",
+            "lo": 150,
+            "hi": 155
+          },
+          {
+            "kind": "interval",
+            "lo": 160,
+            "hi": 165
+          },
+          {
+            "kind": "interval",
+            "lo": 170,
+            "hi": 175
+          },
+          {
+            "kind": "interval",
+            "lo": 180,
+            "hi": 185
+          },
+          {
+            "kind": "interval",
+            "lo": 190,
+            "hi": 195
+          },
+          {
+            "kind": "interval",
+            "lo": 200,
+            "hi": 205
+          },
+          {
+            "kind": "interval",
+            "lo": 210,
+            "hi": 215
+          },
+          {
+            "kind": "interval",
+            "lo": 220,
+            "hi": 225
+          },
+          {
+            "kind": "interval",
+            "lo": 230,
+            "hi": 235
+          },
+          {
+            "kind": "interval",
+            "lo": 240,
+            "hi": 245
+          },
+          {
+            "kind": "interval",
+            "lo": 250,
+            "hi": 255
+          },
+          {
+            "kind": "interval",
+            "lo": 260,
+            "hi": 265
+          },
+          {
+            "kind": "interval",
+            "lo": 270,
+            "hi": 275
+          },
+          {
+            "kind": "interval",
+            "lo": 280,
+            "hi": 285
+          },
+          {
+            "kind": "interval",
+            "lo": 290,
+            "hi": 295
+          },
+          {
+            "kind": "interval",
+            "lo": 300,
+            "hi": 305
+          },
+          {
+            "kind": "interval",
+            "lo": 310,
+            "hi": 315
+          }
+        ],
+        "scanner": "crack"
+      },
+      "kind": "interval",
+      "num": 32,
+      "step": 2,
+      "u32_bounds": [
+        [
+          0,
+          5
+        ],
+        [
+          10,
+          15
+        ],
+        [
+          20,
+          25
+        ],
+        [
+          30,
+          35
+        ],
+        [
+          40,
+          45
+        ],
+        [
+          50,
+          55
+        ],
+        [
+          60,
+          65
+        ],
+        [
+          70,
+          75
+        ],
+        [
+          80,
+          85
+        ],
+        [
+          90,
+          95
+        ],
+        [
+          100,
+          105
+        ],
+        [
+          110,
+          115
+        ],
+        [
+          120,
+          125
+        ],
+        [
+          130,
+          135
+        ],
+        [
+          140,
+          145
+        ],
+        [
+          150,
+          155
+        ],
+        [
+          160,
+          165
+        ],
+        [
+          170,
+          175
+        ],
+        [
+          180,
+          185
+        ],
+        [
+          190,
+          195
+        ],
+        [
+          200,
+          205
+        ],
+        [
+          210,
+          215
+        ],
+        [
+          220,
+          225
+        ],
+        [
+          230,
+          235
+        ],
+        [
+          240,
+          245
+        ],
+        [
+          250,
+          255
+        ],
+        [
+          260,
+          265
+        ],
+        [
+          270,
+          275
+        ],
+        [
+          280,
+          285
+        ],
+        [
+          290,
+          295
+        ],
+        [
+          300,
+          305
+        ],
+        [
+          310,
+          315
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "step": 2,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 1610612736,
+            "value": 536870912
+          },
+          {
+            "kind": "mask",
+            "mask": 1610612736,
+            "value": 0
+          },
+          {
+            "kind": "mask",
+            "mask": 1610612736,
+            "value": 1073741824
+          }
+        ],
+        "imask": 1610612736
+      },
+      "kind": "mask",
+      "num": 3,
+      "step": 2,
+      "u32_bounds": [
+        [
+          536870912,
+          4294967295
+        ],
+        [
+          0,
+          4294967295
+        ],
+        [
+          1073741824,
+          4294967295
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 12345
+          }
+        ],
+        "imask": 4294967295
+      },
+      "kind": "mask",
+      "num": 1,
+      "step": 1,
+      "u32_bounds": [
+        [
+          12345,
+          4294967295
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 0
+          }
+        ]
+      },
+      "kind": "mask",
+      "num": 1,
+      "step": 1,
+      "u32_bounds": [
+        [
+          0,
+          4294967295
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 65535,
+            "value": 305419896
+          }
+        ],
+        "imask": 65535
+      },
+      "kind": "mask",
+      "num": 1,
+      "step": 1,
+      "u32_bounds": [
+        [
+          22136,
+          4294967295
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "step": 5,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 200
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 300
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 400
+          }
+        ],
+        "roll_vals": [
+          100,
+          200,
+          300,
+          400
+        ],
+        "gem_vals": [
+          50,
+          60
+        ],
+        "gem_index": [
+          0,
+          2
+        ]
+      },
+      "kind": "roll",
+      "num": 4,
+      "step": 5,
+      "u32_bounds": [
+        [
+          0,
+          100
+        ],
+        [
+          0,
+          200
+        ],
+        [
+          0,
+          300
+        ],
+        [
+          0,
+          400
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 20
+          }
+        ],
+        "roll_vals": [
+          1,
+          2
+        ],
+        "gem_vals": [],
+        "gem_index": []
+      },
+      "kind": "roll",
+      "num": 2,
+      "step": 1,
+      "u32_bounds": [
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          20
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 20
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 30
+          }
+        ],
+        "roll_vals": [
+          7
+        ],
+        "gem_vals": [],
+        "gem_index": []
+      },
+      "kind": "roll",
+      "num": 3,
+      "step": 1,
+      "u32_bounds": [
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          20
+        ],
+        [
+          0,
+          30
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          }
+        ]
+      },
+      "kind": "roll",
+      "num": 1,
+      "step": 1,
+      "u32_bounds": [
+        [
+          0,
+          10
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "step": 7,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1000
+          },
+          {
+            "kind": "interval",
+            "lo": 500,
+            "hi": 2000
+          }
+        ],
+        "target_wx": 5,
+        "bagua_growth": [
+          5,
+          12
+        ]
+      },
+      "kind": "wuxing",
+      "num": 2,
+      "step": 7,
+      "u32_bounds": [
+        [
+          0,
+          1000
+        ],
+        [
+          500,
+          2000
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          }
+        ],
+        "target_wx": 0
+      },
+      "kind": "wuxing",
+      "num": 1,
+      "step": 1,
+      "u32_bounds": [
+        [
+          0,
+          100
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          }
+        ]
+      },
+      "kind": "wuxing",
+      "num": 1,
+      "step": 1,
+      "u32_bounds": [
+        [
+          0,
+          100
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 100
+          }
+        ],
+        "target_wx": 34,
+        "bagua_growth": [
+          3,
+          0
+        ]
+      },
+      "kind": "wuxing",
+      "num": 1,
+      "step": 1,
+      "u32_bounds": [
+        [
+          0,
+          100
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "pool",
+        "step": 4,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 10
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 20
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 30
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 40
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 50
+          }
+        ],
+        "total": 100,
+        "roll_vals": [
+          10,
+          20
+        ]
+      },
+      "kind": "pool",
+      "num": 5,
+      "step": 4,
+      "u32_bounds": [
+        [
+          0,
+          10
+        ],
+        [
+          0,
+          20
+        ],
+        [
+          0,
+          30
+        ],
+        [
+          0,
+          40
+        ],
+        [
+          0,
+          50
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "pool",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 2
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 3
+          }
+        ],
+        "total": 7
+      },
+      "kind": "pool",
+      "num": 3,
+      "step": 1,
+      "u32_bounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "pool",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 2
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 3
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 4
+          }
+        ],
+        "total": 4294967300,
+        "roll_vals": [
+          1
+        ]
+      },
+      "kind": "pool",
+      "num": 4,
+      "step": 1,
+      "u32_bounds": [
+        [
+          0,
+          1
+        ],
+        [
+          0,
+          2
+        ],
+        [
+          0,
+          3
+        ],
+        [
+          0,
+          4
+        ]
+      ]
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": [],
+        "target_wx": 0,
+        "growth": [
+          -0.3,
+          0.3
+        ],
+        "grows": true
+      },
+      "kind": "growth-wuxing",
+      "num": 0,
+      "step": 1,
+      "u32_bounds": []
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "step": 5,
+        "constraints": [],
+        "target_wx": 5,
+        "growth": [
+          -0.2,
+          0.3
+        ],
+        "grows": false
+      },
+      "kind": "growth-wuxing",
+      "num": 0,
+      "step": 1,
+      "u32_bounds": []
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": [],
+        "target_wx": 32
+      },
+      "kind": "growth-wuxing",
+      "num": 0,
+      "step": 1,
+      "u32_bounds": []
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": []
+      },
+      "kind": "growth-wuxing",
+      "num": 0,
+      "step": 1,
+      "u32_bounds": []
+    }
+  ],
+  "errors": [
+    {
+      "in": {
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ]
+      },
+      "match": "缺少 'kind' 字段"
+    },
+    {
+      "in": {
+        "kind": "nope",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ]
+      },
+      "match": "未知的 spec kind"
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "constraints": []
+      },
+      "match": "区间数量不能为 0"
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          },
+          {
+            "kind": "interval",
+            "lo": 1,
+            "hi": 2
+          },
+          {
+            "kind": "interval",
+            "lo": 2,
+            "hi": 3
+          },
+          {
+            "kind": "interval",
+            "lo": 3,
+            "hi": 4
+          },
+          {
+            "kind": "interval",
+            "lo": 4,
+            "hi": 5
+          },
+          {
+            "kind": "interval",
+            "lo": 5,
+            "hi": 6
+          },
+          {
+            "kind": "interval",
+            "lo": 6,
+            "hi": 7
+          },
+          {
+            "kind": "interval",
+            "lo": 7,
+            "hi": 8
+          },
+          {
+            "kind": "interval",
+            "lo": 8,
+            "hi": 9
+          },
+          {
+            "kind": "interval",
+            "lo": 9,
+            "hi": 10
+          },
+          {
+            "kind": "interval",
+            "lo": 10,
+            "hi": 11
+          },
+          {
+            "kind": "interval",
+            "lo": 11,
+            "hi": 12
+          },
+          {
+            "kind": "interval",
+            "lo": 12,
+            "hi": 13
+          },
+          {
+            "kind": "interval",
+            "lo": 13,
+            "hi": 14
+          },
+          {
+            "kind": "interval",
+            "lo": 14,
+            "hi": 15
+          },
+          {
+            "kind": "interval",
+            "lo": 15,
+            "hi": 16
+          },
+          {
+            "kind": "interval",
+            "lo": 16,
+            "hi": 17
+          },
+          {
+            "kind": "interval",
+            "lo": 17,
+            "hi": 18
+          },
+          {
+            "kind": "interval",
+            "lo": 18,
+            "hi": 19
+          },
+          {
+            "kind": "interval",
+            "lo": 19,
+            "hi": 20
+          },
+          {
+            "kind": "interval",
+            "lo": 20,
+            "hi": 21
+          },
+          {
+            "kind": "interval",
+            "lo": 21,
+            "hi": 22
+          },
+          {
+            "kind": "interval",
+            "lo": 22,
+            "hi": 23
+          },
+          {
+            "kind": "interval",
+            "lo": 23,
+            "hi": 24
+          },
+          {
+            "kind": "interval",
+            "lo": 24,
+            "hi": 25
+          },
+          {
+            "kind": "interval",
+            "lo": 25,
+            "hi": 26
+          },
+          {
+            "kind": "interval",
+            "lo": 26,
+            "hi": 27
+          },
+          {
+            "kind": "interval",
+            "lo": 27,
+            "hi": 28
+          },
+          {
+            "kind": "interval",
+            "lo": 28,
+            "hi": 29
+          },
+          {
+            "kind": "interval",
+            "lo": 29,
+            "hi": 30
+          },
+          {
+            "kind": "interval",
+            "lo": 30,
+            "hi": 31
+          },
+          {
+            "kind": "interval",
+            "lo": 31,
+            "hi": 32
+          },
+          {
+            "kind": "interval",
+            "lo": 32,
+            "hi": 33
+          }
+        ]
+      },
+      "match": "超过上限 32"
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 9,
+            "hi": 3
+          }
+        ]
+      },
+      "match": "上下界反了"
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 4294967296
+          }
+        ]
+      },
+      "match": "越出 uint32"
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "constraints": [
+          {
+            "kind": "who"
+          }
+        ]
+      },
+      "match": "未知的约束类型"
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 255,
+            "value": 1
+          }
+        ],
+        "imask": 65535
+      },
+      "match": "不一致"
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 4294967296
+          }
+        ]
+      },
+      "match": "越出 uint32"
+    },
+    {
+      "in": {
+        "kind": "mask",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ]
+      },
+      "match": "MaskSpec 只接受 MaskConstraint"
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 1
+          }
+        ]
+      },
+      "match": "IntervalSpec 只接受 IntervalConstraint"
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 1
+          }
+        ]
+      },
+      "match": "WuxingSpec 只接受 IntervalConstraint"
+    },
+    {
+      "in": {
+        "kind": "pool",
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 1
+          }
+        ]
+      },
+      "match": "PoolSpec 只接受 IntervalConstraint"
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "constraints": [
+          {
+            "kind": "mask",
+            "mask": 4294967295,
+            "value": 1
+          }
+        ]
+      },
+      "match": "RollSpec 只接受 IntervalConstraint"
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ],
+        "roll_vals": [
+          1,
+          2
+        ]
+      },
+      "match": "超过区间数量"
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ],
+        "roll_vals": [
+          1
+        ],
+        "gem_vals": [
+          1
+        ],
+        "gem_index": []
+      },
+      "match": "gem_vals 长度"
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ],
+        "gem_vals": [
+          1
+        ],
+        "gem_index": [
+          1
+        ]
+      },
+      "match": "越界"
+    },
+    {
+      "in": {
+        "kind": "pool",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 2
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 3
+          }
+        ],
+        "roll_vals": [
+          1
+        ]
+      },
+      "match": "超过区间数量"
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ],
+        "bagua_growth": [
+          1
+        ]
+      },
+      "match": "长度为 2"
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ]
+      },
+      "match": "不接受区间约束"
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "constraints": [],
+        "growth": [
+          -1.5,
+          0.3
+        ]
+      },
+      "match": "growth 必须满足"
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "constraints": [],
+        "growth": [
+          0.3,
+          -0.3
+        ]
+      },
+      "match": "growth 必须满足"
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "constraints": [],
+        "growth": [
+          -0.1,
+          1.5
+        ]
+      },
+      "match": "growth 必须满足"
+    }
+  ],
+  "steps": [
+    {
+      "in": {
+        "kind": "roll",
+        "step": 2,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ]
+      },
+      "match": "step 必须是 1"
+    },
+    {
+      "in": {
+        "kind": "wuxing",
+        "step": 3,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ]
+      },
+      "match": "step 必须是 1"
+    },
+    {
+      "in": {
+        "kind": "pool",
+        "step": 2,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 2
+          },
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 3
+          }
+        ]
+      },
+      "match": "step 必须是 1"
+    },
+    {
+      "in": {
+        "kind": "roll",
+        "step": 1,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ]
+      },
+      "match": ""
+    },
+    {
+      "in": {
+        "kind": "interval",
+        "step": 5,
+        "constraints": [
+          {
+            "kind": "interval",
+            "lo": 0,
+            "hi": 1
+          }
+        ]
+      },
+      "match": ""
+    },
+    {
+      "in": {
+        "kind": "growth-wuxing",
+        "step": 1,
+        "constraints": []
+      },
+      "match": ""
+    }
+  ]
+}

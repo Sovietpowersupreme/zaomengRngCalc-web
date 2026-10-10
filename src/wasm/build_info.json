@@ -1,0 +1,57 @@
+{
+  "artifacts": {
+    "cracker.mjs": {
+      "sha256": "a6d593f929eb04d44559ca23182b13249939274fcf5d3a430defec8f56208953",
+      "size": 17625
+    },
+    "cracker.mvp.wasm": {
+      "sha256": "8bf6f2083ddc4ba0d04afc7c067122ccc82d7d394962213ee72c3732d6b22d6d",
+      "size": 20175
+    },
+    "cracker.wasm": {
+      "sha256": "b434e66d235862610de8adbe3aca653cadfa1868319eeb4a888cd0004097a340",
+      "size": 20139
+    }
+  },
+  "em_cache": "emsdk_cache",
+  "emcc": {
+    "mtime": 1790262776,
+    "path": "upstream/emscripten/emcc.exe",
+    "size": 23552
+  },
+  "flags": [
+    "-sMODULARIZE=1",
+    "-sEXPORT_ES6=1",
+    "-sENVIRONMENT=node,web,worker",
+    "-sALLOW_MEMORY_GROWTH=1",
+    "-sEXPORTED_RUNTIME_METHODS=ccall,cwrap,HEAPU32,HEAP32,HEAPF64",
+    "-sASSERTIONS=0",
+    "-fno-exceptions"
+  ],
+  "generated_by": "csrc/build_wasm.py",
+  "module": "cracker",
+  "opt": "-O2",
+  "path_base": {
+    "em_cache": "<em_cache 所在盘符的根>",
+    "emcc": "$EMSDK"
+  },
+  "sources": {
+    "cracker.c": {
+      "eol": "lf",
+      "sha256": "1b9a8bb4faa2eee380d79a802aa21eefd057709b603fd04ae38eafb1e3cc1c7d",
+      "size": 39986
+    },
+    "wasm_glue.c": {
+      "eol": "lf",
+      "sha256": "4f80a4771dd1e3b136d1175cd5517e5d5c3e5c59d6f924176ae1fdc4430a9fcb",
+      "size": 11286
+    }
+  },
+  "wasm_opt": {
+    "features": [
+      "--enable-bulk-memory",
+      "--llvm-memory-copy-fill-lowering"
+    ],
+    "produces": "cracker.mvp.wasm"
+  }
+}

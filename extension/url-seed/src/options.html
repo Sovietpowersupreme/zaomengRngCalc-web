@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <title>种子恢复 · 规则与站点</title>
+    <style>
+      /* 这里**只**放「上屏前别闪白」的底色，与网页版计算器同色。
+         组件样式在 src/theme.ts，由 options.js 注入 —— <script defer> 执行前
+         浏览器可能已经画过一帧，白底深色界面闪一下格外刺眼。 */
+      :root {
+        color-scheme: dark;
+      }
+      body {
+        min-height: 100vh;
+        margin: 0;
+        font: 13px/1.7 "Microsoft YaHei", "PingFang SC", "Segoe UI", system-ui, sans-serif;
+        color: #ece0c3;
+        background-color: #0d172e;
+        background-image: radial-gradient(ellipse at 50% 0%, #1e3a7a 0%, #162e69 40%, #0d172e 100%);
+        background-attachment: fixed;
+      }
+    </style>
+  </head>
+  <body>
+    <main id="app"></main>
+    <script defer src="options.js"></script>
+  </body>
+</html>

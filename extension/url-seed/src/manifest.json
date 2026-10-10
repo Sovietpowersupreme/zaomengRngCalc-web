@@ -1,0 +1,29 @@
+{
+  "manifest_version": 3,
+  "name": "造梦西游3 种子恢复（URL 随机数）",
+  "version": "0.1.0",
+  "description": "观察页面网络请求里的随机数（ran=），按可配置的规则与公式换算成 31 位随机整数，再用最近两个值自动反推游戏种子。",
+  "minimum_chrome_version": "116",
+  "permissions": ["webRequest", "storage", "scripting", "activeTab"],
+  "optional_host_permissions": ["*://*/*"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "种子恢复",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "32": "icons/icon32.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    }
+  },
+  "icons": {
+    "16": "icons/icon16.png",
+    "32": "icons/icon32.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "options_page": "options.html"
+}

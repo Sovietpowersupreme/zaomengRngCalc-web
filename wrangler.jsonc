@@ -1,0 +1,32 @@
+{
+  // 本文件在**公开仓库根**（= web/），Cloudflare Workers Builds 就是在这一层跑
+  // `npm run build` 然后 `npx wrangler deploy` 的，所以下面的路径都相对本目录解析。
+  //
+  // 本项目是**纯静态**产物（`vite build` → dist/，没有 Worker 脚本），因此只声明
+  // `assets`、**不要**加 `main` —— 加了就等于凭空引入一个永远不会被请求的 Worker。
+  // 漏掉 `assets` 的报错是：Missing entry-point to Worker script or to assets directory。
+  "name": "zaomengrngcalc-web",
+  // Workers 要求（且推荐）显式声明；改了它可能改变运行时行为，不要随手往前填未来日期。
+  "compatibility_date": "2026-10-08",
+  "assets": {
+    // 相对本文件所在目录，即 `web/dist`（vite.config.ts 的 build.outDir）。
+    "directory": "./dist",
+    // 界面全部状态都在 URL hash（#...）里，没有真路径路由；把未命中的路径回落到
+    // index.html，可让手输/刷新任意路径都不会撞 404。
+    "not_found_handling": "single-page-application"
+  },
+  // ⚠️ 这两项关掉后，部署不会给出 *.workers.dev 地址：必须已经在 Cloudflare 控制台
+  // 给这个 Worker 绑好自定义域（或 routes），否则站点部署成功却没有入口可访问。
+  // 还没绑域名时，先把 workers_dev 改成 true 用临时地址验证。
+  "workers_dev": false,
+  "preview_urls": false,
+
+  // log
+  "observability": {
+    "logs": {
+      "enabled": true,
+      "invocation_logs": true,
+      "persist": true
+    }
+  }
+}
